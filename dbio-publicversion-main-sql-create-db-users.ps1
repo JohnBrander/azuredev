@@ -22,9 +22,9 @@ Write-Host "Encrypted dbPassword: $(ConvertFrom-SecureString $dbUserLoginPasswor
 $ClearText = [Runtime.InteropServices.Marshal]::PtrToStringAuto([Runtime.InteropServices.Marshal]::SecureStringToBSTR($dbUserLoginPassword))
 Write-Host "Original dbPassword: $ClearText"
 
-Write-Host "Encrypted adminPassword: $(ConvertFrom-SecureString $dbUserLoginPassword)"
+Write-Host "Encrypted adminPassword: $(ConvertFrom-SecureString $administratorLoginPassword)"
 $ClearText = [Runtime.InteropServices.Marshal]::PtrToStringAuto([Runtime.InteropServices.Marshal]::SecureStringToBSTR($administratorLoginPassword))
-Write-Host "Original adminPassword: ${Env:administratorLoginPassword}"
+Write-Host "Original adminPassword: $ClearText"
 
 Install-Module dbatools -force
 
