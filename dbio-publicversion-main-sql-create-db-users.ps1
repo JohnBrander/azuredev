@@ -26,7 +26,7 @@ Write-Host "Encrypted adminPassword: $(ConvertFrom-SecureString $administratorLo
 $ClearText = [Runtime.InteropServices.Marshal]::PtrToStringAuto([Runtime.InteropServices.Marshal]::SecureStringToBSTR($administratorLoginPassword))
 Write-Host "Original adminPassword: $ClearText"
 
-#Install-Module dbatools -force
+Install-Module dbatools -force
 
 Get-DbaDbMemoryUsage -SqlInstance ${Env:sqlInstance} `
 -SqlCredential $adminCredential `
