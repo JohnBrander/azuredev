@@ -26,13 +26,17 @@ Write-Host "Encrypted adminPassword: $(ConvertFrom-SecureString $administratorLo
 $ClearText = [Runtime.InteropServices.Marshal]::PtrToStringAuto([Runtime.InteropServices.Marshal]::SecureStringToBSTR($administratorLoginPassword))
 Write-Host "Original adminPassword: $ClearText"
 
-Install-Module dbatools -force
+#Install-Module dbatools -force
 
+Get-DbaDbMemoryUsage -SqlInstance ${Env:sqlInstance} `
+-SqlCredential $adminCredential `
+
+    <#
 New-DbaLogin -SqlInstance ${Env:sqlInstance} `
 -SqlCredential $adminCredential `
 -Login $dbUserLogin `
 -SecurePassword $dbUserLoginPassword `
--Force
+-Force #>
  
 New-DbaDbUser -SqlInstance ${Env:sqlInstance} `
 -Database acq `
@@ -46,6 +50,5 @@ Add-DbaDbRoleMember -SqlInstance ${Env:sqlInstance} `
 -Role db_owner `
 -User  $dbUserLogin `
 -Confirm: $false  
-
 
 
