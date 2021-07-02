@@ -5,13 +5,18 @@ $dbUserLogin = ${Env:dbUserLogin}
 $dbUserLoginPassword = ConvertTo-SecureString -String ${Env:dbUserLoginPassword} -AsPlainText -Force
 
 Write-Output 'Hello from the ARM Template deployment'
-Write-Output $administratorLogin
-Write-Output $administratorLoginPassword
+
+Write-Output ${Env:administratorLogin}
+Write-Output ${Env:administratorLoginPassword}
+Write-Output ${Env:dbUserLogin}
+Write-Output ${Env:dbUserLoginPassword}
+Write-Output ${Env:sqlInstance}
+
 Write-Output $administratorLogin
 Write-Output $administratorLoginPassword
 Write-Output $dbUserLogin
 Write-Output $dbUserLoginPassword
-Write-Output ${Env:sqlInstance}
+
 
 Install-Module dbatools -force
 
