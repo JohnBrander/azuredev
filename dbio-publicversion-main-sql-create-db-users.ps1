@@ -1,8 +1,9 @@
 $administratorLoginPassword = ConvertTo-SecureString -String ${Env:administratorLoginPassword} -AsPlainText -Force
+$dbUserLoginPassword = ConvertTo-SecureString -String '6677D1q!ertrEGX=NuxVcE94I]Ip' -AsPlainText -Force
+
 $adminCredential = New-Object System.Management.Automation.PSCredential (${Env:administratorLogin}, $administratorLoginPassword)
 
 $dbUserLogin = ${Env:dbUserLogin}
-$dbUserLoginPassword = ConvertTo-SecureString -String ${Env:dbUserLoginPassword} -AsPlainText -Force
 
 Write-Output 'Hello from the ARM Template deployment'
 
