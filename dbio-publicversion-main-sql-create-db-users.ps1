@@ -25,7 +25,6 @@ New-DbaLogin -SqlInstance ${Env:sqlInstance} `
 -Login $dbUserLogin `
 -SecurePassword $dbUserLoginPassword `
 -Force
--EnableException: $false
  
 New-DbaDbUser -SqlInstance ${Env:sqlInstance} `
 -Database acq `
